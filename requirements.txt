@@ -8,3 +8,4 @@ emoji==2.8.0
 textblob==0.17.1
 Flask==3.0.0
 python-telegram-bot==20.7
+aiohttp==3.9.0
