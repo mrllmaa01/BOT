@@ -183,7 +183,7 @@ def get_emotion_inline_keyboard():
         [InlineKeyboardButton(text="📊 Моя статистика", callback_data="stats")],
         [InlineKeyboardButton(text="💾 Сохранить в дневник", callback_data="save")],
         [InlineKeyboardButton(text="🎬 Фильм под настроение", callback_data="movie")],
-        [InlineKeyboardButton(text="🎵 Искать через @song", url="https://t.me/song")],
+        [InlineKeyboardButton(text="🎵 Искать через @fmusbot", url="https://t.me/fmusbot")],
         [InlineKeyboardButton(text="😺 Ещё котика", callback_data="more_cat")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
