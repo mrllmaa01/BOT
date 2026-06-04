@@ -9,3 +9,4 @@ aiogram
 pandas
 numpy
 asyncpg
+Flask
