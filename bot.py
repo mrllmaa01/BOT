@@ -577,6 +577,33 @@ async def main():
         print("🛑 Бот остановлен")
         await bot.session.close()
 
+# ... (весь остальной код твоего бота)
+
+# --- Добавь этот код ниже ---
+from flask import Flask
+from threading import Thread
+import os
+
+# Создаем простое веб-приложение для проверки здоровья
+health_app = Flask(__name__)
+
+@health_app.route('/health')
+def health_check():
+    # Просто возвращаем "OK", чтобы сообщить Render и UptimeRobot, что все хорошо
+    return "OK", 200
+
+def run_health_server():
+    # Запускаем веб-сервер на порту, который назначит Render
+    port = int(os.environ.get("PORT", 10000))
+    health_app.run(host='0.0.0.0', port=port)
+
+# Запускаем сервер для проверки здоровья в отдельном потоке,
+# чтобы он не мешал работе основного бота
+Thread(target=run_health_server, daemon=True).start()
+# --- Код для проверки здоровья закончился ---
+
+# ... (дальше идет твой код для запуска бота, например, bot.polling())
+
 if __name__ == "__main__":
     try:
         asyncio.run(main())
